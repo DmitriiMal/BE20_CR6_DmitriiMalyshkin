@@ -1,6 +1,40 @@
-{% extends 'base.html.twig' %} {% block title %}Hello EventsController!{% endblock %} {% block body %}
+{% extends 'base.html.twig' %} {% block title %}{{ parent() }}{% endblock %} {% block body %}
 
 <div class="container m-5 pt-5">
   <h1>Events</h1>
+  {% for message in app.flashes('notice') %}
+  <div class="alert alert-success"><i class="fa-regular fa-calendar-check fa-lg fa-flip" style="--fa-animation-duration: 3s"></i> {{ message }}</div>
+  {% endfor %}
+  <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
+    {% for event in events %}
+
+    <div id="{{ event.id }}" class="mb-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{ event.picture }}" class="card-img-top object-fit-cover rounded-top asprat" alt="{{ event.name }}" />
+          {# <img src="{{ asset('pictures/'~ event.picture) }}" class="card-img-top object-fit-cover rounded-top asprat" alt="{{ event.name }}" /> #}
+          <div class="card-body">
+            <h5 class="card-title mb-3">{{ event.name }}</h5>
+            {#
+            <p class="card-text my-1">Town: {{ event.town }}</p>
+            #} {#
+            <p class="card-text">Days: {{ event.days }}</p>
+            #} {#
+            <p class="card-text text-warning">&starf;&starf;&starf;&starf;&star;</p>
+            #}
+            <div class="btn-group w-100" role="group" aria-label="Basic example">
+              <a class="btn btn-sm btn-dark" href="{{ path('app_details', { id: event.id }) }}">View</a>
+              <a class="btn btn-sm btn-outline-dark" href="{{ path('app_edit', { id: event.id }) }}">Edit</a>
+              <a class="btn btn-sm btn-outline-danger" href="/delete/{{ event.id }}">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% else %}
+    <p class="text-body-secondary">No events found ¯\_(ツ)_/¯</p>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
