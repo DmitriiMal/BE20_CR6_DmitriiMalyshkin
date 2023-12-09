@@ -35,6 +35,9 @@ class Events
     #[ORM\ManyToOne]
     private ?Type $fk_type = null;
 
+    #[ORM\ManyToOne]
+    private ?Managers $fk_manager = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class Events
     public function setFkType(?Type $fk_type): static
     {
         $this->fk_type = $fk_type;
+
+        return $this;
+    }
+
+    public function getFkManager(): ?Managers
+    {
+        return $this->fk_manager;
+    }
+
+    public function setFkManager(?Managers $fk_manager): static
+    {
+        $this->fk_manager = $fk_manager;
 
         return $this;
     }

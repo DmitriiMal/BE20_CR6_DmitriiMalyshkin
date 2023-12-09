@@ -9,8 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Events;
+use App\Entity\Type;
 use App\Form\EventsType;
 use Doctrine\ORM\EntityManagerInterface;
+
 
 class EventsController extends AbstractController
 {
@@ -22,6 +24,11 @@ class EventsController extends AbstractController
 
         $entityManager = $doctrine->getManager();
 
+        // $allEvents = $doctrine->getRepository(Events::class)->findAll();
+        $allEvents = $doctrine->getRepository(Type::class)->findAll();
+
+
+        // dd($allEvents);
         if ($type !== 'all') {
             $events = $entityManager
                 ->getRepository(Events::class)
@@ -37,6 +44,7 @@ class EventsController extends AbstractController
 
         return $this->render('events/index.html.twig', [
             'events' => $events,
+            'allEvents' => $allEvents,
             'type' => $type,
         ]);
     }
@@ -96,11 +104,14 @@ class EventsController extends AbstractController
 
 
     #[Route('/details/{id}', name: 'app_details')]
-    public function details(ManagerRegistry $doctrine, $id): Response
+    // public function details(ManagerRegistry $doctrine, $id): Response
+    public function details(Events $event): Response
     {
-        $event = $doctrine->getRepository(Events::class)->find($id);
+        // $event = $doctrine->getRepository(Events::class)->find($id);
         return $this->render('events/details.html.twig', [
-            'event' => $event
+            'event' => $event,
+            'type' => $event->getFkType(),
+            'manager' => $event->getFkManager()
         ]);
     }
 
