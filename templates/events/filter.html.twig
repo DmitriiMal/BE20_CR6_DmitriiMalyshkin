@@ -1,12 +1,8 @@
 {% extends 'base.html.twig' %} {% block title %}{{ parent() }}{% endblock %} {% block body %}
 
 <div class="container m-5 pt-5">
-  <a class="btn btn-outline-primary btn-sm mb-3 rounded-pill" href="{{ path('app_events') }}">All</a>
-  <div class="d-inline btn-group w-100" role="group" aria-label="Basic example">
-    {# <a class="btn btn-outline-primary btn-sm mb-3 rounded-pill" href="{{ path('app_events', { fk_type: 'music' }) }}">Music only</a> #}
-    <a class="btn btn-outline-primary btn-sm mb-3 rounded-pill" href="{{ path('app_events', { fk_type: 'music' }) }}">Music only</a>
-  </div>
-  {% for message in app.flashes('notice') %}
+  <a class="btn btn-outline-primary btn-sm mb-3 rounded-pill" href="/{{ events[0].fkType.name }}">Music only</a>
+  {# <a href="{{ path('app_events')~'/music' }}">Music</a> #} {% for message in app.flashes('notice') %}
   <div class="alert alert-success"><i class="fa-regular fa-calendar-check fa-lg fa-flip" style="--fa-animation-duration: 3s"></i> {{ message }}</div>
   {% endfor %}
   <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">

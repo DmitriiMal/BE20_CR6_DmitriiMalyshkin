@@ -7,11 +7,15 @@
       <div class="card-body">
         <h2 class="card-title mb-3">{{ event.name }}</h2>
 
-        <p class="card-text my-1">Capacity: {{ event.capacity }} persones</p>
+        <p class="card-text my-3">Capacity: {{ event.capacity }} persones</p>
 
-        <p class="card-text my-1">{{ event.description }}</p>
+        <p class="card-text my-3">{{ event.description }}</p>
 
+        {#
         <p class="my-1 text-body-secondary">Date: {{ event.date|date('Y-m-d H:i:s') }}</p>
+        #}
+        <p class="my-1 text-body-secondary">Date: {{ event.date|date('d M Y') }}</p>
+        <p class="my-1 text-body-secondary mb-3">Time: {{ event.date|date('H:i') }}</p>
 
         <small class="card-text"><a href="{{ event.url }}">Event's webpage</a></small>
 

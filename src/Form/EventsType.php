@@ -21,10 +21,16 @@ class EventsType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options): void
   {
     $builder
-      ->add('fk_type', EntityType::class, [
-        'class' => Type::class,
-        'choice_label' => 'name',
-      ])
+      ->add(
+        'fk_type',
+        EntityType::class,
+        [
+          'class' => Type::class,
+          'choice_label' => 'name',
+          'attr' => ['class' => 'form-control mb-3'],
+          'label' => 'Type of event'
+        ]
+      )
 
       ->add('name', TextType::class, [
         'attr' => ['class' => 'form-control mb-3']

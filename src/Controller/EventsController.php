@@ -15,14 +15,32 @@ use Doctrine\ORM\EntityManagerInterface;
 class EventsController extends AbstractController
 {
     #[Route('/', name: 'app_events')]
-    public function index(ManagerRegistry $doctrine): Response
+    public function index(Request $request, ManagerRegistry $doctrine): Response
     {
-        $events = $doctrine->getRepository(Events::class)->findAll();
+
+        $type = $request->query->get('fk_type', 'all');
+
+        $entityManager = $doctrine->getManager();
+
+        if ($type !== 'all') {
+            $events = $entityManager
+                ->getRepository(Events::class)
+                ->createQueryBuilder('e')
+                ->join('e.fk_type', 't')
+                ->andWhere('t.name = :type')
+                ->setParameter('type', $type)
+                ->getQuery()
+                ->getResult();
+        } else {
+            $events = $doctrine->getRepository(Events::class)->findAll();
+        }
 
         return $this->render('events/index.html.twig', [
-            'events' => $events
+            'events' => $events,
+            'type' => $type,
         ]);
     }
+
 
 
     #[Route('/create', name: 'app_create')]
@@ -51,7 +69,7 @@ class EventsController extends AbstractController
     }
 
 
-    #[Route('/edit{id}', name: 'app_edit')]
+    #[Route('/edit/{id}', name: 'app_edit')]
     public function edit(Request $request, ManagerRegistry $doctrine, $id): Response
     {
         $event = $doctrine->getRepository(Events::class)->find($id);
@@ -77,7 +95,7 @@ class EventsController extends AbstractController
     }
 
 
-    #[Route('/{id}', name: 'app_details')]
+    #[Route('/details/{id}', name: 'app_details')]
     public function details(ManagerRegistry $doctrine, $id): Response
     {
         $event = $doctrine->getRepository(Events::class)->find($id);
@@ -96,11 +114,6 @@ class EventsController extends AbstractController
         $event->getId();
         $entityManager->remove($event);
         $entityManager->flush();
-
-        // $em = $this->getDoctrine()->getManager();
-        // $event = $em->getRepository('App:event')->find($id);
-        // $em->remove($event);
-        // $em->flush();
 
         $this->addFlash(
             'notice',
