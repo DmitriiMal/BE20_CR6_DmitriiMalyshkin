@@ -14,14 +14,15 @@
           <img src="{{ event.picture }}" class="card-img-top object-fit-cover rounded-top asprat" alt="{{ event.name }}" />
           {# <img src="{{ asset('pictures/'~ event.picture) }}" class="card-img-top object-fit-cover rounded-top asprat" alt="{{ event.name }}" /> #}
           <div class="card-body">
-            <h5 class="card-title mb-3">{{ event.name }}</h5>
+            <h5 class="card-title mb-3">
+              {{ event.name }} <span class="badge rounded-pill text-bg-{{ event.fkType.color }}">{{ event.fkType.name }}</span>
+            </h5>
             {#
             <p class="card-text my-1">Town: {{ event.town }}</p>
             #} {#
-            <p class="card-text">Days: {{ event.days }}</p>
-            #} {#
             <p class="card-text text-warning">&starf;&starf;&starf;&starf;&star;</p>
             #}
+
             <div class="btn-group w-100" role="group" aria-label="Basic example">
               <a class="btn btn-sm btn-dark" href="{{ path('app_details', { id: event.id }) }}">View</a>
               <a class="btn btn-sm btn-outline-dark" href="{{ path('app_edit', { id: event.id }) }}">Edit</a>

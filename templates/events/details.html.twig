@@ -16,8 +16,9 @@
         <small class="card-text"><a href="{{ event.url }}">Event's webpage</a></small>
 
         <div class="btn-group w-100 my-3" role="group" aria-label="Basic example">
-          <a class="btn btn-sm btn-info" href="{{ path('app_events') }}#{{ event.id }}">Back to list</a>
-          <a class="btn btn-sm btn-warning" href="{{ path('app_edit', { id: event.id }) }}">Edit</a>
+          <a class="btn btn-sm btn-dark" href="{{ path('app_events') }}#{{ event.id }}">Back to list</a>
+          <a class="btn btn-sm btn-outline-dark" href="{{ path('app_edit', { id: event.id }) }}">Edit</a>
+          <a class="btn btn-sm btn-outline-danger" href="{{ path('app_delete', { id: event.id }) }}">Delete</a>
         </div>
       </div>
       {##} {# <img src="{{ asset('pictures/'~ event.picture) }}" class="card-img-top object-fit-cover rounded-bottom asprat" alt="{{ event.name }}" /> #}
