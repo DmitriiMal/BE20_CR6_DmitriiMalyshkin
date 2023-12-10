@@ -98,7 +98,7 @@ class EventsController extends AbstractController
     }
 
 
-    #[Route('/details/{id}', name: 'app_details')]
+    #[Route('/{id}', name: 'app_details')]
     // public function details(ManagerRegistry $doctrine, $id): Response
     public function details(Events $event): Response
     {
