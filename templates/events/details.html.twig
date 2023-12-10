@@ -4,11 +4,10 @@
   <h1>{{ event.name }}</h1>
   <div class="card h-100">
     <div class="card-body">
-      <span class="badge rounded-pill mb-3 text-bg-{{ type.color }}">{{ type.name }}</span>
+      <span class="badge rounded-pill mt-3 text-bg-{{ type.color }}">{{ type.name }}</span>
 
-      <p class="card-text my-3">Capacity: {{ event.capacity }} persones</p>
-
-      <h5 class="mt-3">Contact person</h5>
+      {% if manager %}
+      <h5 class="mt-4">Contact person</h5>
       <ul class="list-unstyled">
         <li>
           <strong>{{ manager.name }}</strong>
@@ -16,20 +15,22 @@
         <li>Phone: {{ manager.phone }}</li>
         <li>Email: {{ manager.email }}</li>
       </ul>
-
-      <h5 class="mt-3">Location</h5>
+      {% endif %} {% if location %}
+      <h5 class="mt-4">Location</h5>
       <ul class="list-unstyled">
         <li>
           <strong>{{ location.name }}</strong>
         </li>
-        <li>{{ location.phone }}</li>
-        <li>{{ location.city }}</li>
-        <li>{{ location.zip }}</li>
-        <li>{{ location.street }} / {{ location.house }}</li>
+        <li>Phone: {{ location.phone }}</li>
+        <li>City: {{ location.city }}</li>
+        <li>ZIP code: {{ location.zip }}</li>
+        <li>Address: {{ location.street }} / {{ location.house }}</li>
         <li><a href="{{ location.url }}">Location's webside</a></li>
       </ul>
+      {% endif %}
 
       <p class="card-text my-3">{{ event.description }}</p>
+      <p class="card-text my-3">Capacity: {{ event.capacity }} persones</p>
 
       <p class="my-1 text-body-secondary">Date: {{ event.date|date('d M Y') }}</p>
       <p class="my-1 text-body-secondary mb-3">Time: {{ event.date|date('H:i') }}</p>

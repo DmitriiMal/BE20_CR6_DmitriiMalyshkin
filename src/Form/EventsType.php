@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Events;
+use App\Entity\Locations;
 use App\Entity\Managers;
 use App\Entity\Type;
 
@@ -41,6 +42,17 @@ class EventsType extends AbstractType
           'choice_label' => 'name',
           'attr' => ['class' => 'form-control mb-3'],
           'label' => 'Manager'
+        ]
+      )
+
+      ->add(
+        'fk_location',
+        EntityType::class,
+        [
+          'class' => Locations::class,
+          'choice_label' => 'name',
+          'attr' => ['class' => 'form-control mb-3'],
+          'label' => 'Location'
         ]
       )
 

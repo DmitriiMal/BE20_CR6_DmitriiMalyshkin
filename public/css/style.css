@@ -1,3 +1,16 @@
 .asprat {
   aspect-ratio: 1;
+}
+
+.carousel-item img {
+  height: 70vh;
+}
+
+.carousel-item i {
+  font-size: 5rem;
+}
+
+.btn i {
+  font-size: 1rem;
+  margin: 0 10px;
 }/*# sourceMappingURL=style.css.map */

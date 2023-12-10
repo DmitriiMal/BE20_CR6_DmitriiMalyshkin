@@ -1,8 +1,49 @@
 {% extends 'base.html.twig' %} {% block title %}{{ parent() }}{% endblock %} {% block body %}
 
-<div class="container m-5 pt-5">
-  {# ############################################# #} {# Dropdown #}
+<section>
+  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner h-100">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img src="{{ asset('pictures/carousel-img-1.jpg') }}" class="d-block w-100 object-fit-cover" alt="..." />
+        <div class="mb-5 carousel-caption d-none d-md-block bg-dark text-light rounded-pill opacity-75">
+          <h1 class="my-5">Welcome to the EventNest!</h1>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{{ asset('pictures/carousel-img-2.jpg') }}" class="d-block w-100 object-fit-cover" alt="..." />
+        <div class="mb-5 carousel-caption d-none d-md-block bg-light text-dark rounded-pill opacity-75">
+          <h1 class="">Let's find your event!</h1>
+          <a class="btn btn-dark my-2 rounded-pill px-4" href="#list"><i class="fa-solid fa-arrow-down-long"></i><i class="fa-solid fa-arrow-down-long"></i><i class="fa-solid fa-arrow-down-long"></i></a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{{ asset('pictures/carousel-img-3.jpg') }}" class="d-block w-100 object-fit-cover" alt="..." />
+        {#
+        <div class="mb-5 carousel-caption d-none d-md-block bg-dark text-light rounded-pill opacity-75">
+          <h1 class="">Heading</h1>
+          <a class="btn btn-light my-2 rounded-pill px-4" href="#">Link</a>
+        </div>
+        #}
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
 
+<div class="container m-5 pt-5">
+  {# ############################################# #} {# Dropdown #} {#
   <div class="dropdown my-3">
     <button class="btn btn-secondary rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
     <ul class="dropdown-menu">
@@ -13,13 +54,12 @@
       {% endfor %}
     </ul>
   </div>
+  #} {# ############################################# #} {# Buttons #}
 
-  {# ############################################# #} {# Buttons #}
-
-  <a class="btn btn-outline-dark btn-sm mb-3 rounded-pill" href="{{ path('app_events') }}">All</a>
+  <a id="list" class="btn btn-outline-dark btn-sm my-3 rounded-pill" href="{{ path('app_events') }}">All events</a>
   <div class="d-inline btn-group w-100" role="group" aria-label="Basic example">
     {% for allEvent in allEvents %}
-    <a class="btn btn-outline-{{ allEvent.color }} btn-sm mb-3 rounded-pill" href="{{ path('app_events', { fk_type: allEvent.name }) }}">{{ allEvent.name }}</a>
+    <a class="my-3 btn btn-outline-{{ allEvent.color }} btn-sm mb-3 rounded-pill" href="{{ path('app_events', { fk_type: allEvent.name }) }}">{{ allEvent.name }}</a>
     {% endfor %}
   </div>
 
