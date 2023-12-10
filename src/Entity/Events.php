@@ -38,6 +38,9 @@ class Events
     #[ORM\ManyToOne]
     private ?Managers $fk_manager = null;
 
+    #[ORM\ManyToOne]
+    private ?Locations $fk_location = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +138,18 @@ class Events
     public function setFkManager(?Managers $fk_manager): static
     {
         $this->fk_manager = $fk_manager;
+
+        return $this;
+    }
+
+    public function getFkLocation(): ?Locations
+    {
+        return $this->fk_location;
+    }
+
+    public function setFkLocation(?Locations $fk_location): static
+    {
+        $this->fk_location = $fk_location;
 
         return $this;
     }
