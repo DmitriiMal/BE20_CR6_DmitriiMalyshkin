@@ -102,11 +102,15 @@ class EventsController extends AbstractController
     // public function details(ManagerRegistry $doctrine, $id): Response
     public function details(Events $event): Response
     {
+
+
+        // dd($event->getFkLocation('city'));
         // $event = $doctrine->getRepository(Events::class)->find($id);
         return $this->render('events/details.html.twig', [
             'event' => $event,
             'type' => $event->getFkType(),
-            'manager' => $event->getFkManager()
+            'manager' => $event->getFkManager(),
+            'location' => $event->getFkLocation()
         ]);
     }
 
