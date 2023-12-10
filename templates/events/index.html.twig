@@ -43,18 +43,7 @@
 </section>
 
 <div class="container m-5 pt-5">
-  {# ############################################# #} {# Dropdown #} {#
-  <div class="dropdown my-3">
-    <button class="btn btn-secondary rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-    <ul class="dropdown-menu">
-      {% for allEvent in allEvents %}
-      <li>
-        <a class="dropdown-item" href="{{ path('app_events', { fk_type: allEvent.name }) }}">{{ allEvent.name }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  #} {# ############################################# #} {# Buttons #}
+  {# ############################################# #} {# Dropdown #} {# ############################################# #} {# Buttons #}
 
   <a id="list" class="btn btn-outline-dark btn-sm my-3 rounded-pill" href="{{ path('app_events') }}">All events</a>
   <div class="d-inline btn-group w-100" role="group" aria-label="Basic example">
@@ -80,9 +69,6 @@
           <p class="my-1 text-body-secondary">Date: {{ event.date|date('d M Y') }}</p>
           <p class="my-1 text-body-secondary mb-3">Time: {{ event.date|date('H:i') }}</p>
 
-          <div class="progress mb-3" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar progress-bar-striped bg-dark" style="width: 75%"></div>
-          </div>
           <div class="btn-group w-100" role="group" aria-label="Basic example">
             <a class="btn btn-sm btn-dark" href="{{ path('app_details', { id: event.id }) }}">View</a>
             <a class="btn btn-sm btn-outline-dark" href="{{ path('app_edit', { id: event.id }) }}">Edit</a>

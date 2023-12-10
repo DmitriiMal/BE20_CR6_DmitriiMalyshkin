@@ -71,7 +71,8 @@ class EventsType extends AbstractType
       ])
 
       ->add('date', DateTimeType::class, [
-        'attr' => ['class' => 'form-control mb-3']
+        'attr' => ['class' => 'form-control mb-3'],
+        'widget' => 'single_text'
       ])
 
       ->add('picture', TextType::class, [

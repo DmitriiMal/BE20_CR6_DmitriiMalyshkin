@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %} {% block title %}Details | {{ parent() }}{% endblock %} {% block body %}
 
 <div class="container m-5 pt-5">
-  <h1>{{ event.name }}</h1>
   <div class="card h-100">
     <div class="card-body">
-      <span class="badge rounded-pill mt-3 text-bg-{{ type.color }}">{{ type.name }}</span>
+      <span class="badge rounded-pill my-3 text-bg-{{ type.color }}">{{ type.name }}</span>
 
+      <h1 class="card-title mb-3">{{ event.name }}</h1>
       {% if manager %}
       <h5 class="mt-4">Contact person</h5>
       <ul class="list-unstyled">
