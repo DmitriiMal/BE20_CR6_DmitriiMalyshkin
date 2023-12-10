@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %} {% block title %}{{ parent() }}{% endblock %} {% block body %}
 
 <div class="container m-5 pt-5">
+  {# ############################################# #} {# Dropdown #}
+
   <div class="dropdown my-3">
     <button class="btn btn-secondary rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
     <ul class="dropdown-menu">
@@ -11,6 +13,9 @@
       {% endfor %}
     </ul>
   </div>
+
+  {# ############################################# #} {# Buttons #}
+
   <a class="btn btn-outline-dark btn-sm mb-3 rounded-pill" href="{{ path('app_events') }}">All</a>
   <div class="d-inline btn-group w-100" role="group" aria-label="Basic example">
     {% for allEvent in allEvents %}
@@ -18,7 +23,7 @@
     {% endfor %}
   </div>
 
-  {% for message in app.flashes('notice') %}
+  {# ############################################# #} {% for message in app.flashes('notice') %}
   <div class="alert alert-success"><i class="fa-regular fa-calendar-check fa-lg fa-flip" style="--fa-animation-duration: 3s"></i> {{ message }}</div>
   {% endfor %}
   <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">

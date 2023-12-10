@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Events;
+use App\Entity\Managers;
 use App\Entity\Type;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,6 +30,17 @@ class EventsType extends AbstractType
           'choice_label' => 'name',
           'attr' => ['class' => 'form-control mb-3'],
           'label' => 'Type of event'
+        ]
+      )
+
+      ->add(
+        'fk_manager',
+        EntityType::class,
+        [
+          'class' => Managers::class,
+          'choice_label' => 'name',
+          'attr' => ['class' => 'form-control mb-3'],
+          'label' => 'Manager'
         ]
       )
 

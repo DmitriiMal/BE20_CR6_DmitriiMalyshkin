@@ -19,14 +19,9 @@ class EventsController extends AbstractController
     #[Route('/', name: 'app_events')]
     public function index(Request $request, ManagerRegistry $doctrine): Response
     {
-
         $type = $request->query->get('fk_type', 'all');
-
         $entityManager = $doctrine->getManager();
-
-        // $allEvents = $doctrine->getRepository(Events::class)->findAll();
         $allEvents = $doctrine->getRepository(Type::class)->findAll();
-
 
         // dd($allEvents);
         if ($type !== 'all') {
