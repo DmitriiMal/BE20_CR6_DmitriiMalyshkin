@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 10, 2023 at 03:06 PM
+-- Generation Time: Dec 10, 2023 at 05:54 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -66,15 +66,16 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `name`, `date`, `description`, `picture`, `capacity`, `url`, `fk_type_id`, `fk_manager_id`, `fk_location_id`) VALUES
-(1, 'test', '2023-12-25 20:00:00', 'Test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test', 'https://images.unsplash.com/photo-1638132704795-6bb223151bf7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 500, '#', 1, 1, NULL),
-(4, 'vfdsa', '2018-01-01 00:00:00', 'fsda', 'fsda', 32, 'fsda', 2, 1, NULL),
-(5, 'weff', '2018-01-01 00:00:00', 'cs', 'fs', 3, 'we', 3, 1, NULL),
-(6, 'wew', '2018-01-01 00:00:00', 'e', 'e', 2, '#', 4, 1, NULL),
-(7, 'w', '2018-01-01 00:00:00', 'd', 'e', 2, '#', 5, 1, NULL),
-(9, 'Vienna City Marathon', '2024-04-23 08:00:00', 'The Vienna City Marathon is a spectacular annual race that weaves through the historic streets of Vienna, showcasing the city\'s iconic landmarks. Runners from around the world gather for this challenging yet exhilarating event, celebrating the fusion of athleticism and cultural richness in the heart of Vienna. Join us for an unforgettable experience of endurance and discovery.', 'https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?q=80&w=1985&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 100000, '#', 2, 1, NULL),
-(10, 'f', '2018-01-01 00:00:00', 'fs', 'fed', 2343243, '#', 1, 1, NULL),
-(11, 'ded', '2018-01-01 00:00:00', 'ds', 'ds', 231, '#', 5, 1, NULL),
-(12, 'TestManager', '2018-01-01 00:00:00', 'ff', 'fdsa', 2323, '#', 4, 1, NULL);
+(1, 'test', '2023-12-25 20:00:00', 'Test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test', 'https://images.unsplash.com/photo-1638132704795-6bb223151bf7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 500, '#', 1, 1, 1),
+(4, 'Music Festival', '2023-12-08 17:50:00', 'Immerse yourself in the rhythms and melodies of the Music Festival. Join us for a day filled with live performances featuring top artists across various genres. Whether you\'re a fan of rock, pop, or classical music, this event promises an unforgettable experience.', 'https://images.unsplash.com/photo-1619229725920-ac8b63b0631a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 5000, '#', 1, 2, 1),
+(5, 'weff', '2018-01-01 00:00:00', 'cs', 'fs', 3, 'we', 3, 1, 1),
+(6, 'wew', '2018-01-01 00:00:00', 'e', 'e', 2, '#', 4, 1, 1),
+(7, 'w', '2018-01-01 00:00:00', 'd', 'e', 2, '#', 5, 1, 1),
+(9, 'Vienna City Marathon', '2024-04-23 08:00:00', 'The Vienna City Marathon is a spectacular annual race that weaves through the historic streets of Vienna, showcasing the city\'s iconic landmarks. Runners from around the world gather for this challenging yet exhilarating event, celebrating the fusion of athleticism and cultural richness in the heart of Vienna. Join us for an unforgettable experience of endurance and discovery.', 'https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?q=80&w=1985&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 100000, '#', 2, 1, 1),
+(10, 'f', '2018-01-01 00:00:00', 'fs', 'fed', 2343243, '#', 1, 1, 1),
+(11, 'ded', '2018-01-01 00:00:00', 'ds', 'pic', 231, '#', 5, 1, 1),
+(12, 'TestManager', '2018-01-01 00:00:00', 'ff', 'fdsa', 2323, '#', 4, 1, 1),
+(15, 'Tech Conference', '2023-12-23 12:50:00', 'Explore the future of technology at the Tech Conference. Connect with industry experts, attend insightful talks, and get hands-on with the latest innovations. Whether you\'re a seasoned professional or just starting in tech, this conference is a must-attend for anyone passionate about the digital world.', 'https://images.unsplash.com/photo-1582192730841-2a682d7375f9?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 500, '#', 6, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -216,7 +217,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `locations`
